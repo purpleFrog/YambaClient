@@ -1,10 +1,7 @@
 package com.twitter.university.android.yamba.client;
 
 import android.app.Fragment;
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,25 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.twitter.university.android.yamba.service.YambaContract;
+import com.twitter.university.android.yamba.service.YambaServiceHelper;
 
 
 public class TweetFragment extends Fragment {
     public static final String TAG = "TWEET";
-
-    private static class Poster extends AsyncTask<String, Void, Void> {
-        private final ContentResolver resolver;
-
-        public Poster(ContentResolver resolver) { this.resolver = resolver; }
-
-        @Override
-        protected Void doInBackground(String... tweet) {
-            ContentValues cv = new ContentValues();
-            cv.put(YambaContract.Posts.Columns.TWEET, tweet[0]);
-            resolver.insert(YambaContract.Posts.URI, cv);
-            return null;
-        }
-    }
 
     private int okColor;
     private int warnColor;
@@ -113,7 +96,7 @@ public class TweetFragment extends Fragment {
         if (BuildConfig.DEBUG) { Log.d(TAG, "posting: " + tweet); }
         if (!checkTweetLen(tweet.length())) { return; }
 
-        new Poster(getActivity().getContentResolver()).execute(tweet);
+        YambaServiceHelper.post(getActivity(), tweet);
         tweetView.setText("");
     }
 
