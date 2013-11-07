@@ -1,11 +1,11 @@
 package com.twitter.university.android.yamba.service;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
 import com.twitter.university.android.yamba.client.BuildConfig;
+
 
 public final class YambaServiceHelper {
     public static final String TAG = "SVC_HELP";
