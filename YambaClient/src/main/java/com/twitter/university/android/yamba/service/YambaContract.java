@@ -27,12 +27,8 @@ public class YambaContract {
             = "com.twitter.university.android.yamba.service.TWEET_OP";
         // method id parameter value: post a message.  Parameter is the message
         public static final int OP_POST = -1;
-        // sync posts and timeline with cloud
+        // method id parameter value: poll once.  No parameters.
         public static final int OP_SYNC = -2;
-        // method id parameter value: start polling.  No parameters.
-        public static final int OP_START_POLLING = -3;
-        // method id parameter value: stop polling.  No parameters.
-        public static final int OP_STOP_POLLING = -4;
 
         // Parameter to EXECUTE|POST: String - the tweet message to be posted
         public static final String PARAM_TWEET
