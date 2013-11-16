@@ -59,7 +59,7 @@ public class YambaContract {
             = "com.twitter.university.android.yamba.action.NEW_TWEET_COUNT";
     }
 
-    public static final String AUTHORITY = "com.twitter.university.android.yamba.timeline";
+    public static final String AUTHORITY = "com.twitter.university.android.yamba";
 
     public static final Uri BASE_URI = new Uri.Builder()
         .scheme(ContentResolver.SCHEME_CONTENT)
